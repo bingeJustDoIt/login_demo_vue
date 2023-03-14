@@ -17,8 +17,19 @@
 </template>
 
 <script>
+// import axios from "axios";
+
+import {request} from "@/assets/axios_config";
+import axios from "axios";
+import {store} from "../assets/store";
+
 export default {
   name: "Login",
+  computed: {
+    store() {
+      return store
+    }
+  },
   data() {
     return {
       loginForm: {
@@ -30,14 +41,14 @@ export default {
   methods: {
     submitForm() {
       console.log(this.loginForm)
-      // this.$refs.loginForm.validate(valid => {
-      //   if (valid) {
-      //     // perform login action
-      //     console.log('Logged in!')
-      //   } else {
-      //     console.log('Error: form validation failed.')
-      //   }
-      // })
+      // request(`/service1`,null,'GET').then((res) => {
+      // request(`/service1`,null,'GET').then((res) => {
+      this.$axios(`/service1`, null, 'GET').then((res) => {
+        console.log(`res:${res}`)
+      }).catch(err => {
+        console.log(err)
+      })
+
     },
     resetForm() {
       this.loginForm.password = ''
@@ -51,14 +62,14 @@ export default {
 
 .el-form {
   //width: 400px;
-  //border: 1px solid black; /* 添加边框 */
+  border: 1px solid black; /* 添加边框 */
 
 }
 
 .login-container {
   background-color: skyblue;
   width: 400px;
-  height: 400px;
+  //height: 400px;
   border: 2px solid #ccc;
   //padding: 10px;
   border-radius: 5px;
