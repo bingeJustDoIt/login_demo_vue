@@ -19,16 +19,14 @@
 <script>
 // import axios from "axios";
 
-import {request} from "@/assets/axios_config";
-import axios from "axios";
-import {store} from "../assets/store";
+// import {store} from "@/assets/store";
 
 export default {
   name: "Login",
   computed: {
-    store() {
-      return store
-    }
+    // store() {
+    //   return store
+    // }
   },
   data() {
     return {
@@ -38,15 +36,18 @@ export default {
       }
     }
   },
+  mounted() {
+    console.log(import.meta.env.BASE_URL)
+  },
   methods: {
     submitForm() {
       console.log(this.loginForm)
       // request(`/service1`,null,'GET').then((res) => {
       // request(`/service1`,null,'GET').then((res) => {
-      this.$axios(`/service1`, null, 'GET').then((res) => {
-        console.log(`res:${res}`)
-      }).catch(err => {
-        console.log(err)
+      this.$axios.post('/login/login', this.loginForm).then(res=>{
+        console.log(res)
+        localStorage.setItem('token',res.data)
+        this.$router.push('/home')
       })
 
     },
@@ -62,7 +63,7 @@ export default {
 
 .el-form {
   //width: 400px;
-  border: 1px solid black; /* 添加边框 */
+  //border: 1px solid black; /* 添加边框 */
 
 }
 
