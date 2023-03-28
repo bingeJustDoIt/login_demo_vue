@@ -42,8 +42,6 @@ export default {
   methods: {
     submitForm() {
       console.log(this.loginForm)
-      // request(`/service1`,null,'GET').then((res) => {
-      // request(`/service1`,null,'GET').then((res) => {
       this.$axios.post('/login/login', this.loginForm).then(res=>{
         console.log(res)
         localStorage.setItem('token',res.data)
