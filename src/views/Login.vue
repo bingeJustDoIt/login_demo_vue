@@ -66,7 +66,9 @@ export default {
 }
 
 .login-container {
-  background-color: skyblue;
+  //
+  //background-color: rgb(158, 225, 224);
+  background-color: white;
   width: 400px;
   //height: 400px;
   border: 2px solid #ccc;

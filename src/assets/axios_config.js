@@ -20,11 +20,11 @@ export function useAxios() {
             if (token) {
                 config.headers.Authorization = `Bearer ${token}`;
             }
-            // 检查 token 是否存在，并跳转到登录页面
-            if (!localStorage.getItem('token')) {
-                window.location.href = '/login';
-                alert('请先登录！')
-            }
+            // // 检查 token 是否存在，并跳转到登录页面
+            // if (!localStorage.getItem('token')) {
+            //     window.location.href = '/login';
+            //     alert('请先登录！')
+            // }
             return config;
         },
         error => {

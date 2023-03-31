@@ -1,7 +1,14 @@
-<script setup></script>
+<script>
+import {defineComponent} from "vue";
+import Main from "@/views/frontEnd/Main.vue";
+
+export default defineComponent({
+  components: {Main}
+})
+</script>
 <template>
   <div id="app">
-    <router-view></router-view>
+    <Main></Main>
   </div>
 </template>
 
@@ -17,9 +24,10 @@
   justify-content: center;
   align-items: center;
 
-  background-image: url("@/assets/color.jpg");
+  //background-image: url("@/assets/color.jpg");
   background-repeat: no-repeat;
   background-size: cover;
+  //color: white;
 }
 
 </style>
